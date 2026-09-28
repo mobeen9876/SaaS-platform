@@ -10,7 +10,7 @@ import {
   FiArrowRight,
   FiCheck,
 } from "react-icons/fi";
-import styles from "./Signup.module.css";
+import styles from "./signup.module.css";
 import { showError, showSuccess } from "../../utils/swal";
 import { API_URL } from "../../config/api";
 

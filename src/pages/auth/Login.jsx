@@ -27,7 +27,7 @@ import {
   FiShield,
   FiUser,
 } from "react-icons/fi";
-import styles from "./Login.module.css";
+import styles from "./login.module.css";
 import { showError, showSuccess } from "../../utils/swal";
 import { API_URL } from "../../config/api";
 
