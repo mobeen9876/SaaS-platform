@@ -1,0 +1,714 @@
+.page {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 100px 20px 60px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1e293b;
+}
+
+.container {
+  max-width: 960px;
+
+  margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+  color: #64748b;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: white;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.backBtn:hover {
+  background: #f1f5f9;
+  transform: translateX(-3px);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+.topActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.createBtn,
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.createBtn:hover,
+.submitBtn:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+.createBtn:disabled,
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.viewBtn:hover {
+  background: #2563eb;
+}
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.toggleBtn:hover {
+  background: #e2e8f0;
+}
+
+.deleteBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.deleteBtn:hover {
+  background: #fecaca;
+}
+
+.empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.empty svg {
+  font-size: 3rem;
+}
+
+.assignmentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.assignmentCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid #8b5cf6;
+  transition: box-shadow 0.2s;
+}
+.assignmentCard:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.assignmentCard.inactive {
+  opacity: 0.65;
+  border-top-color: #94a3b8;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.inactiveBadge {
+  font-size: 0.7rem;
+  background: #f1f5f9;
+  color: #94a3b8;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.cardDesc {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.cardMeta span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mySubmissionStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #10b981;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.checkIcon {
+  color: #10b981;
+}
+.xIcon {
+  color: #ef4444;
+}
+.alreadySubmitted {
+  font-size: 0.9rem;
+  color: #10b981;
+  font-weight: 500;
+}
+
+.scoreBadge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.aiVerdict {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.pendingBadge {
+  font-size: 0.8rem;
+  background: #fef3c7;
+  color: #d97706;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+
+.assignmentInfo {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.assignmentInfo h3 {
+  color: #475569;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+.assignmentInfo p {
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.deadline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #f59e0b !important;
+  font-weight: 500;
+}
+
+.submitArea {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.submitArea h3 {
+  margin-bottom: 0.5rem;
+}
+.submitHint {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #1e293b;
+  background: #f8fafc;
+  resize: vertical;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  background: white;
+}
+
+.wordCount {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  text-align: right;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.btnSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.createForm {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.formGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.input {
+  padding: 0.75rem 0.875rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #1e293b;
+  background: #f8fafc;
+  transition: border-color 0.2s;
+}
+.input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  background: white;
+}
+
+.scoreCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+.scoreCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.scoreNum {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.scoreMax {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.grade {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.overallFeedback {
+  color: #475569;
+  line-height: 1.6;
+}
+
+.aiDetectionCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.aiDetectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+.aiDetectionBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+.barRow > span:first-child {
+  width: 110px;
+  color: #475569;
+}
+.barTrack {
+  flex: 1;
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.6s ease;
+}
+.barPct {
+  font-weight: 700;
+  width: 40px;
+  text-align: right;
+}
+.verdict {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.aiDetectionReason {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.feedbackGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 640px) {
+  .feedbackGrid {
+    grid-template-columns: 1fr;
+  }
+  .scoreCard {
+    flex-direction: column;
+  }
+}
+
+.feedbackCard {
+  background: white;
+  border-radius: 10px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+}
+.feedbackCard h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+}
+.feedbackCard p {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.listCard {
+  background: white;
+  border-radius: 10px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+.listCard h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+}
+.listCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.listCard li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.mistakesCard {
+  border-left: 3px solid #ef4444;
+}
+.improvementsCard {
+  border-left: 3px solid #f59e0b;
+}
+
+.submissionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.submissionsList h2 {
+  margin-bottom: 0.5rem;
+}
+
+.submissionCard {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.subHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  gap: 1rem;
+}
+.subHeader:hover {
+  background: #f8fafc;
+}
+
+.subInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.subInfo strong {
+  font-size: 0.95rem;
+}
+.subInfo span {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+.subDate {
+  color: #94a3b8;
+}
+.subRight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.subExpanded {
+  border-top: 1px solid #f1f5f9;
+  padding: 1.25rem;
+  background: #f8fafc;
+}
+.subContent h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+.subContent p {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
+
+.subAiResult {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.aiDetectionMini {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+}
+.aiDetectionMini .barRow > span:first-child {
+  width: 60px;
+}
+
+.subFeedback {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.subFeedback p {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.5;
+}
+.subFeedback ul {
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.viewFeedbackBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: white;
+  color: #8b5cf6;
+  border: 2px solid #8b5cf6;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.viewFeedbackBtn:hover {
+  background: #8b5cf6;
+  color: white;
+}

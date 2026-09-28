@@ -1,0 +1,712 @@
+/* ═══════════════════════════════════════════════════════
+   Auth Design System — auth.module.css
+   Brand colors pulled from website theme:
+     Primary gradient : #667eea → #764ba2  (navbar / CTA panels)
+     Button gradient  : #4f46e5 → #8b5cf6  (CTAs / hero buttons)
+     Accent           : #667eea            (links, focus, hover)
+     Text dark        : #1f2937
+     Text muted       : #6b7280
+     Background page  : #f9fafb
+     Admin gradient   : #3b3486 → #1a1648  (deeper, restricted feel)
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Page shell ──────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: #f9fafb;
+}
+
+/* ── Left dark panel ─────────────────────────────────── */
+.darkPanel {
+  width: 44%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  /* default user gradient — matches website navbar/CTA exactly */
+  background: linear-gradient(150deg, #3d3a8e 0%, #667eea 55%, #764ba2 100%);
+}
+
+/* Admin panel — deeper, more serious */
+.darkPanel.admin {
+  background: linear-gradient(150deg, #1a1648 0%, #2d2a7a 50%, #3b3486 100%);
+}
+
+/* Subtle grid overlay */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* Decorative blobs */
+.darkPanel::before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  top: -90px;
+  right: -80px;
+  pointer-events: none;
+}
+.darkPanel::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  bottom: -55px;
+  left: -35px;
+  pointer-events: none;
+}
+
+.panelInner {
+  position: relative;
+  z-index: 1;
+  max-width: 350px;
+  width: 100%;
+}
+
+/* Brand mark */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 52px;
+}
+
+.brandIcon {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 17px;
+  
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.2px;
+}
+
+/* Panel headline */
+.panelHeading {
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.22;
+  letter-spacing: -0.6px;
+  margin-bottom: 14px;
+}
+
+.panelSub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* Trust list */
+.trustList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.trustDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Benefit items (signup right panel) */
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.benefitEmoji {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.benefitTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 3px;
+}
+.benefitDesc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+}
+
+/* Stats row */
+.statsRow {
+  display: flex;
+  margin-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 24px;
+}
+.stat {
+  flex: 1;
+  text-align: center;
+}
+.stat + .stat {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+.statNum {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.4px;
+  margin-bottom: 3px;
+}
+.statLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Right form panel ────────────────────────────────── */
+.formPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 48px 48px;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+/* Signup — form on left side */
+.formPanelLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 48px;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s;
+  align-self: flex-start;
+  margin-bottom: auto;
+}
+.backLink:hover {
+  color: #667eea;
+}
+
+/* ── Form wrap ───────────────────────────────────────── */
+.formWrap {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  padding: 16px 0;
+}
+
+.formWrapWide {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+
+/* ── Role badge (auto-detected) ──────────────────────── */
+.roleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 20px;
+  padding: 4px 13px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border: 1px solid;
+  transition: all 0.3s;
+}
+/* User badge — matches website accent color */
+.roleBadge[data-role="user"] {
+  background: rgba(102, 126, 234, 0.08);
+  color: #4f46e5;
+  border-color: rgba(102, 126, 234, 0.3);
+}
+/* Admin badge — red/restricted feel */
+.roleBadge[data-role="admin"] {
+  background: #fef2f2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+/* ── Step progress dots ──────────────────────────────── */
+.stepBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.stepDot {
+  height: 5px;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+.stepDot.done {
+  width: 20px;
+  background: #667eea;
+}
+.stepDot.active {
+  width: 28px;
+  background: #667eea;
+}
+.stepDot.pending {
+  width: 8px;
+  background: #e5e7eb;
+}
+.stepLabel {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-left: 4px;
+}
+
+.formHeading {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: -0.5px;
+  margin-bottom: 5px;
+}
+
+.formSubtext {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+/* ── Fields ──────────────────────────────────────────── */
+.field {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/* Forgot password link uses website accent #667eea */
+.forgotLink {
+  font-size: 12px;
+  color: #667eea;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.forgotLink:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Icon tinted with website accent */
+.inputLeadIcon {
+  position: absolute;
+  left: 12px;
+  color: #667eea;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 9px;
+  font-size: 14px;
+  color: #1f2937;
+  background: #fafafa;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+.input::placeholder {
+  color: #d1d5db;
+}
+/* Focus ring uses website accent */
+.input:focus {
+  border-color: #667eea;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+/* Read-only email (step 2) */
+.inputReadonly {
+  color: #6b7280 !important;
+  background: #f3f4f6 !important;
+  cursor: default;
+  padding-right: 68px;
+}
+
+/* "Change" button inside read-only input */
+.changeEmailBtn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: #667eea;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 5px;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.changeEmailBtn:hover {
+  background: rgba(102, 126, 234, 0.08);
+  color: #4f46e5;
+}
+
+.inputError {
+  border-color: #f87171 !important;
+  background: #fff8f8 !important;
+}
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.12) !important;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 11px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  font-size: 15px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+.eyeBtn:hover {
+  color: #667eea;
+}
+
+.fieldError {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 5px;
+}
+.fieldChecking {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 5px;
+}
+
+/* Name grid (signup) */
+.nameGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── Password strength ───────────────────────────────── */
+.strengthBar {
+  height: 3px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.strengthFill {
+  height: 100%;
+  border-radius: 4px;
+  transition:
+    width 0.3s,
+    background 0.3s;
+}
+.strengthLabel {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.reqs {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+}
+.req {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+.req.met {
+  color: #10b981;
+}
+.reqDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Checkboxes ──────────────────────────────────────── */
+.checkRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.checkbox {
+  width: 15px;
+  height: 15px;
+  accent-color: #667eea;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.checkText {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.4;
+}
+.checkLink {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+.checkLink:hover {
+  text-decoration: underline;
+}
+
+.rememberRow {
+  margin-bottom: 0;
+}
+
+/* ── Submit button ───────────────────────────────────── */
+/* Uses website hero button gradient: #4f46e5 → #8b5cf6 */
+.submitBtn {
+  width: 100%;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    opacity 0.15s;
+  letter-spacing: 0.1px;
+}
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  /* shadow matches App.css stripe-confirm-btn */
+  box-shadow: 0 6px 18px rgba(99, 91, 255, 0.45);
+}
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Admin variant — deeper purple */
+.submitBtnAdmin {
+  background: linear-gradient(135deg, #3b3486 0%, #2d2a7a 100%);
+}
+.submitBtnAdmin:hover:not(:disabled) {
+  box-shadow: 0 6px 18px rgba(59, 52, 134, 0.45);
+}
+
+.btnArrow {
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.submitBtn:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+.btnSpinner {
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Divider ─────────────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 18px;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #f3f4f6;
+}
+.divider span {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* ── Footer links ────────────────────────────────────── */
+.footerText {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+}
+.footerLink {
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footerLink:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* ── Security note ───────────────────────────────────── */
+.secNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(102, 126, 234, 0.04);
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  border-radius: 9px;
+  padding: 12px 14px;
+  margin-top: 20px;
+}
+.secNoteIcon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.secNoteTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 2px;
+}
+.secNoteText {
+  font-size: 11px;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .nameGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+@media (max-width: 768px) {
+  .darkPanel {
+    display: none;
+  }
+  .formPanel,
+  .formPanelLeft {
+    padding: 28px 24px 40px;
+  }
+  .formHeading {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .formPanel,
+  .formPanelLeft {
+    padding: 20px 18px 32px;
+  }
+  .formWrap,
+  .formWrapWide {
+    padding: 8px 0;
+  }
+}

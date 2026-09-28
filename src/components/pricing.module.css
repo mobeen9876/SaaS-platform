@@ -1,0 +1,480 @@
+/* Pricing.module.css */
+
+/* Main section */
+.pricing {
+  padding: 80px 0;
+  background-color: #f9fafb;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Header */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: black;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testCardsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  padding: 0.5rem 1.2rem;
+  background: transparent;
+  border: 1.5px dashed #94a3b8;
+  border-radius: 20px;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.testCardsBtn:hover {
+  border-color: #4f46e5;
+  color: #4f46e5;
+  background: #f5f3ff;
+}
+
+/* Billing Toggle */
+.billingToggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.toggleContainer span {
+  font-weight: 600;
+  color: #6b7280;
+  padding: 0 15px;
+}
+
+.activeLabel {
+  color: #4f46e5 !important;
+}
+
+.saveBadge {
+  background-color: #10b981;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #e5e7eb;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.toggle:hover {
+  background-color: #d1d5db;
+}
+
+.toggleSwitch {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggleSwitch.annual {
+  transform: translateX(30px);
+}
+
+/* Pricing Plans */
+.plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  .plans {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+}
+
+.planCard {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.planCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.planCard.popular {
+  border-color: #4f46e5;
+  box-shadow: 0 20px 60px rgba(79, 70, 229, 0.15);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.planHeader {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.planName {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.planDescription {
+  color: #6b7280;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.priceAmount {
+  font-size: 48px;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1;
+}
+
+.priceDescription {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Features */
+.planFeatures {
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.featureIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.featureIcon:not(.disabled) {
+  color: #10b981;
+}
+
+.featureIcon.disabled {
+  color: #d1d5db;
+}
+
+.disabledText {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+/* Plan Footer */
+.planFooter {
+  margin-top: auto;
+}
+
+.ctaButton {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid;
+}
+
+.ctaButton.primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.ctaButton.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+}
+
+.ctaButton.secondary {
+  background-color: transparent;
+  color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.ctaButton.secondary:hover {
+  background-color: rgba(79, 70, 229, 0.1);
+  transform: translateY(-2px);
+}
+
+/* FAQ Section */
+.faq {
+  background-color: white;
+  border-radius: 20px;
+  padding: 60px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.faqTitle {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 40px;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .faqGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.faqItem h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.faqItem p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pricing {
+    padding: 60px 0;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .toggleContainer {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .planCard {
+    padding: 30px 20px;
+  }
+
+  .popularBadge {
+    top: -10px;
+    font-size: 12px;
+    padding: 6px 15px;
+  }
+
+  .priceAmount {
+    font-size: 36px;
+  }
+
+  .faq {
+    padding: 30px 20px;
+  }
+
+  .faqTitle {
+    font-size: 24px;
+  }
+}
+/* Current Plan Styles */
+.currentPlan {
+  text-align: center;
+  margin: 20px 0 30px;
+  padding: 15px;
+  background: #e3f2fd;
+  border-radius: 10px;
+}
+
+.currentPlanBadge {
+  display: inline-block;
+  background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.currentPlanText {
+  color: #333;
+  margin: 0;
+  font-size: 16px;
+}
+
+.currentSelectedPlan {
+  border: 2px solid #4f46e5 !important;
+  position: relative;
+}
+
+.currentPlanIndicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.currentPlanButton {
+  background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+  cursor: not-allowed !important;
+}
+
+.currentPlanButton:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Plan Card Loading State */
+.ctaButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .plans {
+    gap: 20px;
+  }
+
+  .faqGrid {
+    gap: 20px;
+  }
+}
+
+/* Contact Sales Option - Simple Link */
+.contactOption {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.contactLink {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactLink:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}

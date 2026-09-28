@@ -1,0 +1,322 @@
+/* ====== NAVBAR BASE STYLES ====== */
+.navbar {
+  position: fixed; /* Stays at top when scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensures navbar is on top of everything */
+  background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Very light border */
+}
+
+.container {
+  max-width: 1280px; /* Don't let it get too wide */
+  margin: 0 auto; /* Center the container */
+  padding: 0 24px; /* Space on sides */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px; /* Fixed height */
+}
+
+/* ====== LOGO STYLES ====== */
+.logoSection {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Remove underline */
+  gap: 12px; /* Space between icon and text */
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 100%
+  ); /* Purple gradient */
+  border-radius: 10px; /* Rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logoText {
+  display: flex;
+  gap: 2px; /* Small gap between words */
+}
+
+.logoMain {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a202c; /* Dark color */
+}
+
+.logoAccent {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a202c; /* Purple color */
+}
+
+/* ====== DESKTOP NAVIGATION ====== */
+.desktopNav {
+  display: none; /* Hidden on mobile by default */
+  gap: 32px; /* Space between links */
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex; /* Show on tablets and larger */
+  }
+}
+
+.navLink {
+  color: #4a5568; /* Gray color */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 8px 0; /* Padding for click area */
+  position: relative;
+}
+
+.navLink:hover {
+  color: #667eea; /* Purple on hover */
+}
+
+/* Add underline effect on hover */
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #667eea;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%; /* Animate underline on hover */
+}
+
+/* ====== DESKTOP CTA BUTTONS ====== */
+.ctaButtons {
+  display: none; /* Hidden on mobile */
+  gap: 16px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .ctaButtons {
+    display: flex; /* Show on tablets and larger */
+  }
+}
+
+.loginBtn {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.loginBtn:hover {
+  color: #667eea;
+  background-color: rgba(102, 126, 234, 0.1);
+}
+
+.signupBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(102, 126, 234, 0.3);
+}
+
+.signupBtn:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Authenticated user badge + logout */
+.userBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(102, 126, 234, 0.1);
+  color: #4a5568;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.logoutBtn {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: white;
+  color: #1a202c;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.logoutBtn:hover {
+  border-color: #f56565;
+  color: #f56565;
+  box-shadow: 0 6px 16px rgba(245, 101, 101, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ====== MOBILE MENU BUTTON ====== */
+.mobileMenuButton {
+  display: block; /* Show on mobile */
+  background: none;
+  border: none;
+  color: #4a5568;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.mobileMenuButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none; /* Hide on tablets and larger */
+  }
+}
+
+/* ====== MOBILE MENU ====== */
+.mobileMenu {
+  position: absolute;
+  top: 70px; /* Below the navbar */
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0 24px;
+}
+
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.mobileNavLink {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: color 0.3s ease;
+}
+
+.mobileNavLink:hover {
+  color: #667eea;
+}
+
+.mobileNavLink:last-child {
+  border-bottom: none; /* No border on last item */
+}
+
+.mobileCta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobileLoginBtn {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.mobileLoginBtn:hover {
+  color: #667eea;
+  border-color: #667eea;
+}
+
+.mobileSignupBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(102, 126, 234, 0.3);
+}
+
+.mobileSignupBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.mobileUserBadge {
+  display: block;
+  padding: 12px;
+  text-align: center;
+  background: rgba(102, 126, 234, 0.1);
+  color: #4a5568;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.mobileLogoutBtn {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: white;
+  color: #1a202c;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.mobileLogoutBtn:hover {
+  border-color: #f56565;
+  color: #f56565;
+  box-shadow: 0 6px 16px rgba(245, 101, 101, 0.2);
+  transform: translateY(-1px);
+}

@@ -1,0 +1,44 @@
+/* App.css - Global styles */
+
+/* ── Stripe-style payment success modal ── */
+.stripe-success-popup {
+  border-radius: 16px !important;
+  box-shadow:
+    0 20px 60px rgba(10, 37, 64, 0.18),
+    0 4px 16px rgba(10, 37, 64, 0.08) !important;
+  border: 1px solid #e6ebf1 !important;
+  text-align: center !important;
+}
+
+.stripe-success-popup .swal2-html-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* Hide the default SweetAlert2 icon area since we use a custom one */
+.stripe-success-popup .swal2-icon {
+  display: none !important;
+}
+
+.stripe-confirm-btn {
+  border-radius: 8px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  padding: 12px 32px !important;
+  letter-spacing: -0.1px !important;
+  box-shadow: 0 4px 12px rgba(99, 91, 255, 0.35) !important;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease !important;
+  margin-top: 8px !important;
+}
+
+.stripe-confirm-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(99, 91, 255, 0.45) !important;
+}
+
+.stripe-confirm-btn:active {
+  transform: translateY(0) !important;
+}
