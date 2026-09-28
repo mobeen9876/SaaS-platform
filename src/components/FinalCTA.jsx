@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./FinalCTA.module.css";
+import styles from "./finalcta.module.css";
 import { FiArrowRight, FiCheck, FiZap, FiUsers } from "react-icons/fi";
 
 const FinalCTA = () => {
